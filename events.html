@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        .hover-me-box {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            color: white;
+            font-weight: bolder;
+            text-align: center;
+            padding-top: 10px;
+        }
+    </style>
+    <script>
+        function greetMe() {
+            const hourOfDay = new Date().getHours();
+
+            if (hourOfDay > 4 && hourOfDay < 12) {
+                return "Good morning";
+            } else if (hourOfDay >= 12 && hourOfDay < 18) {
+                return "Good afternoon";
+            } else {
+                return "Good evening";
+            }
+        }
+
+        
+
+        window.addEventListener('load', function (ev) {
+            const hover_box = document
+                .querySelector('.hover-me-box');
+            const greet_box = document
+                .querySelector('.greeting-box');
+
+            hover_box.addEventListener("mouseover", function (ev) {
+                const greetingText = 
+                    document.createTextNode(greetMe());
+                const linebreak = document.createElement('br');
+
+                greet_box.appendChild(greetingText);
+                greet_box.appendChild(linebreak);
+            });
+            
+            hover_box.addEventListener("mouseout", (ev) => {
+                greet_box.appendChild(document
+                    .createTextNode("Goodbye!"));
+                greet_box.appendChild(
+                    document.createElement("br"));
+
+            })
+            
+        });
+
+    </script>
+</head>
+<body>
+    <div class="hover-me-box">Hover me</div>
+    <div class="greeting-box"></div>
+</body>
+</html>

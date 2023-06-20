@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+
+    <script>
+        "use strict";
+
+        const greetings = [];
+
+        greetings.push("Good morning");
+        greetings.push("Good afternoon");
+        greetings.push("Good night");
+
+        for (let i = 0; i < greetings.length; i++) {
+            console.log(greetings[i]);
+        }
+
+        for (const greeting of greetings) {
+            console.log(greeting);
+        }
+
+        for (const i in greetings) {
+            console.log(i);
+        }
+
+        const f = function (v, i) {
+            console.log(`${v} ${i}`)
+        };
+
+        console.log();
+
+        const g = (v, i) => console.log(`${v} ${i}`);
+
+        greetings.forEach(f);
+        greetings.forEach(g);
+
+        console.log(greetings);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

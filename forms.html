@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <script>
+        window.addEventListener("load", (ev) => {
+            
+            const nameForm = 
+                document.querySelector('.name-form');
+            nameForm.addEventListener('submit', (ev) => {
+                ev.preventDefault();
+                const name = 
+                document.querySelector('.full-name').value;
+                console.log(document.querySelector('.full-name'));
+            
+                document.querySelector('.result-area')
+                    .appendChild(document.createTextNode(name));
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <form action="#" class="name-form">
+        <label for="full-name">Full name: </label>
+        <input type="text" name="full-name" class="full-name">
+        <input type="submit">
+    </form>
+    <div class="result-area"></div>
+</body>
+</html>
